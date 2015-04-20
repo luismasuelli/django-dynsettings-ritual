@@ -4,6 +4,10 @@ __pycache__/
 
 # C extensions
 *.so
+.idea
+*.iml
+*.sqlite3
+atlassian-ide-plugin.xml
 
 # Distribution / packaging
 .Python
