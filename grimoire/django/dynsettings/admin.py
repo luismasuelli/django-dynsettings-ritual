@@ -2,7 +2,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin import site, ModelAdmin
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin
 from .models import (DynamicSetting, BooleanDynamicSetting, DecimalDynamicSetting, IntegerDynamicSetting,
-                     LongTextDynamicSetting, ShortTextDynamicSetting)
+                     LongTextDynamicSetting, ShortTextDynamicSetting, JSONDynamicSetting)
 
 
 class ReadonlyOnEditAdminMixin(ModelAdmin):
@@ -51,7 +51,8 @@ class DynamicSettingAdmin(PolymorphicParentModelAdmin, ReadonlyOnEditAdminMixin)
             (DecimalDynamicSetting, DerivedDynamicSettingAdmin),
             (IntegerDynamicSetting, DerivedDynamicSettingAdmin),
             (LongTextDynamicSetting, DerivedDynamicSettingAdmin),
-            (ShortTextDynamicSetting, DerivedDynamicSettingAdmin)
+            (ShortTextDynamicSetting, DerivedDynamicSettingAdmin),
+            (JSONDynamicSetting, DerivedDynamicSettingAdmin)
         ]
 
 
