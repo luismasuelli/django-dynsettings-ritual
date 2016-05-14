@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-dynsettings-ritual',
-    version='0.0.6',
+    version='0.0.7beta',
     namespace_packages=['grimoire', 'grimoire.django'],
     packages=find_packages(exclude=['dynsettings_proj', 'dynsettings_proj.*']),
     package_data={
