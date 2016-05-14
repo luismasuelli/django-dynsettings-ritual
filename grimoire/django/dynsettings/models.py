@@ -8,7 +8,7 @@ if 'polymorphic' not in settings.INSTALLED_APPS or \
     raise ImproperlyConfigured('For this application to work, both `polymorphic` and `django.contrib.contenttypes` '
                                'must be included in INSTALLED_APPS')
 
-from polymorphic import PolymorphicModel
+from polymorphic.models import PolymorphicModel
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
