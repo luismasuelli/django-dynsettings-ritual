@@ -1,6 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.admin import site, ModelAdmin
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin
+from grimoire.django.tracked.admin import TrackedLiveAdmin
 from .models import (DynamicSetting, BooleanDynamicSetting, DecimalDynamicSetting, IntegerDynamicSetting,
                      LongTextDynamicSetting, ShortTextDynamicSetting, JSONDynamicSetting)
 
@@ -27,11 +28,11 @@ class DerivedDynamicSettingAdmin(PolymorphicChildModelAdmin, ReadonlyOnEditAdmin
     fields = ['name', 'allow_null', 'value']
 
 
-class DynamicSettingAdmin(PolymorphicParentModelAdmin, ReadonlyOnEditAdminMixin):
+class DynamicSettingAdmin(TrackedLiveAdmin, PolymorphicParentModelAdmin, ReadonlyOnEditAdminMixin):
 
     base_model = DynamicSetting
     polymorphic_list = True
-    list_display = ['name', 'display']
+    list_display = ['created_on', 'updated_on', 'name', 'display']
     list_display_links = ['name']
 
     def display(self, obj):

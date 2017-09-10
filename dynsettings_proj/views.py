@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 
 __author__ = 'luismasuelli'
-from grimoire.django.dynsettings import settings
+from grimoire.django.dynsettings.utils import settings
 
 
 def sample(request):

@@ -2,12 +2,7 @@ from collections import OrderedDict
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.utils.six import python_2_unicode_compatible
-
-if 'polymorphic' not in settings.INSTALLED_APPS or \
-   'django.contrib.contenttypes' not in settings.INSTALLED_APPS:
-    raise ImproperlyConfigured('For this application to work, both `polymorphic` and `django.contrib.contenttypes` '
-                               'must be included in INSTALLED_APPS')
-
+from grimoire.django.tracked.models.polymorphic import TrackedLive
 from polymorphic.models import PolymorphicModel
 from django.core.validators import RegexValidator
 from django.db import models
@@ -16,7 +11,7 @@ from jsonfield import JSONField
 
 
 @python_2_unicode_compatible
-class DynamicSetting(PolymorphicModel):
+class DynamicSetting(TrackedLive):
     """
     A generic setting. You will be allowed to access this setting when you
     """
