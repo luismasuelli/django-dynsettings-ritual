@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='django-dynsettings-ritual',
-    version='0.0.9',
+    version='1.0.0',
     packages=[
         'grimoire.django.dynsettings',
         'grimoire.django.dynsettings.migrations',
