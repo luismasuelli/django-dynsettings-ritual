@@ -48,13 +48,16 @@ class DynamicSettingAdmin(TrackedLiveAdmin, PolymorphicParentModelAdmin, Readonl
         One child for each type. They will use the same
         """
         return [
-            (BooleanDynamicSetting, DerivedDynamicSettingAdmin),
-            (DecimalDynamicSetting, DerivedDynamicSettingAdmin),
-            (IntegerDynamicSetting, DerivedDynamicSettingAdmin),
-            (LongTextDynamicSetting, DerivedDynamicSettingAdmin),
-            (ShortTextDynamicSetting, DerivedDynamicSettingAdmin),
-            (JSONDynamicSetting, DerivedDynamicSettingAdmin)
+            BooleanDynamicSetting, DecimalDynamicSetting,
+            IntegerDynamicSetting, LongTextDynamicSetting,
+            ShortTextDynamicSetting, JSONDynamicSetting
         ]
 
 
 site.register(DynamicSetting, DynamicSettingAdmin)
+site.register(BooleanDynamicSetting, DerivedDynamicSettingAdmin)
+site.register(DecimalDynamicSetting, DerivedDynamicSettingAdmin)
+site.register(IntegerDynamicSetting, DerivedDynamicSettingAdmin)
+site.register(LongTextDynamicSetting, DerivedDynamicSettingAdmin)
+site.register(ShortTextDynamicSetting, DerivedDynamicSettingAdmin)
+site.register(JSONDynamicSetting, DerivedDynamicSettingAdmin)

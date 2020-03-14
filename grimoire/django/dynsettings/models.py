@@ -1,7 +1,5 @@
 from collections import OrderedDict
-from django.conf import settings
-from django.core.exceptions import ImproperlyConfigured, ValidationError
-from django.utils.six import python_2_unicode_compatible
+from django.core.exceptions import ValidationError
 from grimoire.django.tracked.models.polymorphic import TrackedLive
 from polymorphic.models import PolymorphicModel
 from django.core.validators import RegexValidator
@@ -10,7 +8,6 @@ from django.utils.translation import ugettext_lazy as _
 from jsonfield import JSONField
 
 
-@python_2_unicode_compatible
 class DynamicSetting(TrackedLive):
     """
     A generic setting. You will be allowed to access this setting when you

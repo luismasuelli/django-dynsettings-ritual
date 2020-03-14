@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='JSONDynamicSetting',
             fields=[
-                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
+                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, on_delete=models.CASCADE, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
                 ('value', jsonfield.fields.JSONField(help_text='Setting value. It must be valid JSON. This setting type is intended only for developers and users who know how to compose valid JSON values. Do not edit them unless you know what are you doing. If, by other means / database access, you or someone corrupts the value of this field, enter by the same mean and restore its original value, or just {} (open and close curly bracers) to have a valid value.', verbose_name='Value')),
             ],
             options={

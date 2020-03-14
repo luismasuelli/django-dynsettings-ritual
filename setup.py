@@ -1,10 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='django-dynsettings-ritual',
-    version='0.0.8',
-    namespace_packages=['grimoire', 'grimoire.django'],
-    packages=find_packages(exclude=['dynsettings_proj', 'dynsettings_proj.*']),
+    version='1.0.0',
+    packages=['grimoire.django.dynsettings'],
     package_data={
         'grimoire.django.dynsettings': [
             'locale/*/LC_MESSAGES/*.*'
@@ -14,7 +13,8 @@ setup(
     license='LGPL',
     author='Luis y Anita',
     author_email='luismasuelli@hotmail.com',
-    description='A Django application used to store dynamic settings (i.e. settings beyond the settings.py file), and retrieve them via another special object (instead of django.conf.settings, and wrapping it).',
-    install_requires=['django-trackmodels-ritual>=0.0.12', 'Django>=1.11', 'jsonfield>=1.0.3',
-                      'django-polymorphic>=1.3']
+    description='A Django application used to store dynamic settings (i.e. settings beyond the settings.py file), '
+                'and retrieve them via another special object (instead of django.conf.settings, and wrapping it).',
+    install_requires=['django-trackmodels-ritual>=1.0.0', 'jsonfield>=3.0.0',
+                      'django-polymorphic>=2.1.2']
 )

@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='BooleanDynamicSetting',
             fields=[
-                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
+                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, on_delete=models.CASCADE, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
                 ('value', models.NullBooleanField(help_text='Setting value. It must be marked, not marked, or undefined.', verbose_name='Value')),
             ],
             options={
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='DecimalDynamicSetting',
             fields=[
-                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
+                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, on_delete=models.CASCADE, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
                 ('value', models.DecimalField(decimal_places=16, max_digits=32, blank=True, help_text='Setting value. It must be a valid numeric value.', null=True, verbose_name='Value')),
             ],
             options={
@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='IntegerDynamicSetting',
             fields=[
-                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
+                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, on_delete=models.CASCADE, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
                 ('value', models.IntegerField(help_text='Setting value. It must be a valid (signed, 4-byte) integer value.', null=True, verbose_name='Value', blank=True)),
             ],
             options={
@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='LongTextDynamicSetting',
             fields=[
-                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
+                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, on_delete=models.CASCADE, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
                 ('value', models.TextField(help_text='Setting value.', max_length=16777215, null=True, blank=True, verbose_name='Value')),
             ],
             options={
@@ -70,7 +70,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ShortTextDynamicSetting',
             fields=[
-                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
+                ('dynamicsetting_ptr', models.OneToOneField(parent_link=True, auto_created=True, on_delete=models.CASCADE, primary_key=True, serialize=False, to='dynsettings.DynamicSetting')),
                 ('value', models.CharField(help_text='Setting value.', max_length=255, null=True, verbose_name='Value', blank=True)),
             ],
             options={
@@ -81,6 +81,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='dynamicsetting',
             name='polymorphic_ctype',
-            field=models.ForeignKey(related_name='polymorphic_dynsettings.dynamicsetting_set+', editable=False, to='contenttypes.ContentType', null=True),
+            field=models.ForeignKey(related_name='polymorphic_dynsettings.dynamicsetting_set+', editable=False, to='contenttypes.ContentType', null=True, on_delete=models.PROTECT),
         ),
     ]
