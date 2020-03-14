@@ -3,7 +3,10 @@ from setuptools import setup
 setup(
     name='django-dynsettings-ritual',
     version='1.0.0',
-    packages=['grimoire.django.dynsettings'],
+    packages=[
+        'grimoire.django.dynsettings',
+        'grimoire.django.dynsettings.migrations',
+    ],
     package_data={
         'grimoire.django.dynsettings': [
             'locale/*/LC_MESSAGES/*.*'
