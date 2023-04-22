@@ -4,7 +4,7 @@ from grimoire.django.tracked.models.polymorphic import TrackedLive
 from polymorphic.models import PolymorphicModel
 from django.core.validators import RegexValidator
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from jsonfield import JSONField
 
 
@@ -60,8 +60,8 @@ class BooleanDynamicSetting(DynamicSetting):
     A boolean setting.
     """
 
-    value = models.NullBooleanField(verbose_name=_(u'Value'),
-                                    help_text=_(u'Setting value. It must be marked, not marked, or undefined.'))
+    value = models.BooleanField(null=True, verbose_name=_(u'Value'),
+                                help_text=_(u'Setting value. It must be marked, not marked, or undefined.'))
 
     class Meta:
         verbose_name = _(u'Boolean Dynamic Setting')
