@@ -114,13 +114,13 @@ class JSONDynamicSetting(DynamicSetting):
     A json value setting.
     """
 
-    value = JSONField(load_kwargs={'object_pairs_hook': OrderedDict}, null=False, blank=False, verbose_name=_(u'Value'),
-                      help_text=_(u'Setting value. It must be valid JSON. This setting type is intended only for '
-                                  u'developers and users who know how to compose valid JSON values. Do not edit them '
-                                  u'unless you know what are you doing. If, by other means / database access, you '
-                                  u'or someone corrupts the value of this field, enter by the same mean and restore '
-                                  u'its original value, or just {} (open and close curly bracers) to have a valid '
-                                  u'value.'))
+    value = models.JSONField(null=False, blank=False, verbose_name=_(u'Value'),
+                             help_text=_(u'Setting value. It must be valid JSON. This setting type is intended only '
+                                         u'for developers and users who know how to compose valid JSON values. Do not '
+                                         u'edit them unless you know what are you doing. If, by other means / database '
+                                         u'access, you or someone corrupts the value of this field, enter by the same '
+                                         u'mean and restore its original value, or just {} (open and close curly '
+                                         u'bracers) to have a valid value.'))
 
     class Meta:
         verbose_name = _(u'JSON Dynamic Setting')
